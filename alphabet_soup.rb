@@ -2,8 +2,7 @@
 #    any punctuation.
 
 def alphabet_soup(str)
+  raise StandardError if [",", ".", "!", "?", "'"].any? { |punctuation| str.include?(punctuation) }
 
-	str = str.scan(/\w/).sort.join
-
-	return str
+	str.scan(/\w/).sort.join
 end

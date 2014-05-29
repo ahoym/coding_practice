@@ -1,6 +1,7 @@
-=begin ***** A spin on finding prime numbers ******
-# Print all pairs(sets) of prime numbers (p,q) such that
-#  				p*q <= n where n is a given number.
+=begin 
+***** A spin on finding prime numbers ******
+Print all pairs(sets) of prime numbers (p,q) such that
+  				p*q <= n where n is a given number.
 =end 
 
 # Method that checks if the input number is a prime number
