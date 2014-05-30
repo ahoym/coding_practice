@@ -13,6 +13,8 @@ def status(num)
 end
 
 def alternate_int(arr)
+  return arr if arr.empty?
+  
 	i = 0
 
 	while i < arr.length
