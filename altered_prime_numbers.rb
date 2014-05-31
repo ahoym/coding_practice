@@ -28,6 +28,8 @@ end
 
 # Method that finds valid pairs from the range of prime numbers produced by prim_nums_of_range(n)
 def alt_prime_num(n)
+  return [] if n < 2
+  
 	prime_nums = prime_nums_of_range(n)
 	valid_pairs = []
 	i = 0
