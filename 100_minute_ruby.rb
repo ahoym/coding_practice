@@ -2,61 +2,61 @@ require 'date'
 
 class PersonalChef
 
-	def make_toast(color)
-		if color.nil?
+	def make_toast(color = nil)
+		if color.nil? || color.strip.empty?
 			puts "How am I supposed to make nothingness toast?"
 		else
-			puts "\n Making your toast #{color}! \n "
+			puts "Making your toast #{color}!"
 		end
 		return self
 	end
 
 	def make_eggs(quantity)
 		quantity.times do 
-			puts "\n Making an egg. \n "
+			puts "Making an egg."
 		end
-		puts "\n Made you #{quantity} eggs! \n "
+		puts "Made you #{quantity} eggs!"
 		return self
 	end
 
 	def make_milkshake(flavor)
-		puts "\n Making your #{flavor} milkshake! \n "
+		puts "Making your #{flavor} milkshake!"
 		return self
 	end
 
 	def good_morning
 		today = Date.today.strftime("%A")
 		day_of_year = Date.today.yday
-		puts "\n Happy #{today}, it's the #{day_of_year} day of 2013! \n "
+		puts "Happy #{today}, it's the #{day_of_year} day of 2013!"
 	end
 
 	def gameplan(meals)
 		meals.each do |meal|
-			puts "\n We'll have #{meal}... \n "
+			puts "We'll have #{meal}..."
 		end
 
 		all_meals = meals.join(", ")
-		puts "\n In summary: #{all_meals} \n "
+		puts "In summary: #{all_meals} "
 		return self
 	end
 
 	def inventory
 		produce = {apples: 3, oranges: 1, carrots: 12}
 		produce.each do |item, quantity|
-			puts "\n There are #{quantity} #{item} in the fridge. \n "
+			puts "There are #{quantity} #{item} in the fridge."
 		end
 		return self
 	end
 
 	def water_status(minutes)
 		if minutes < 7
-			puts "\n The water is not boiling yet. \n "
+			puts "The water is not boiling yet."
 		elsif minutes == 7
-			puts "\n It's just barely boiling. \n "
+			puts "It's just barely boiling."
 		elsif minutes == 8
-			puts "\n It's boiling! \n "
+			puts "It's boiling!"
 		else
-			puts "\n Hot! Hot! Hot! \n "
+			puts "Hot! Hot! Hot!"
 		end
 		return self
 	end
@@ -66,7 +66,7 @@ end
 class Butler
 
 	def open_door(which)
-		puts "\n Opening #{which} door! \n "
+		puts "Opening #{which} door!"
 	end
 
 end
