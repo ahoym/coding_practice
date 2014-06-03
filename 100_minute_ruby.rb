@@ -12,11 +12,15 @@ class PersonalChef
 	end
 
 	def make_eggs(quantity)
-		quantity.times do 
-			puts "Making an egg."
-		end
-		puts "Made you #{quantity} eggs!"
-		return self
+    if quantity.is_a?(Integer)
+  		quantity.times do
+  		  puts "Making an egg."
+  		end
+  		puts "Made you #{quantity} eggs!"
+    else
+      puts "That's not a number, boss!"
+    end
+		return self  
 	end
 
 	def make_milkshake(flavor)
