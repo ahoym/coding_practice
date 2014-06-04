@@ -67,6 +67,5 @@ describe "PersonalChef" do
         expect(output).to eq("Happy #{today}, it's the #{day_of_year} day of 2014!")
       end
     end
-    
   end
 end
