@@ -3,14 +3,24 @@
 
 # Using an assigned variable for the boolean.
 def any_duplicates?(arr)
-	boolean = false
-	arr.each do |element|
-		if arr.count(element) > 1
-			boolean = true
-			break
-		end
-	end
-	boolean
+  # This is the old way that I did
+  # boolean = false
+  # arr.each do |element|
+  #   if arr.count(element) > 1
+  #     boolean = true
+  #     break
+  #   end
+  # end
+  # boolean
+
+  # Another way to do the same thing, more succinct than above
+  # arr.each do |element|
+  #   return true if arr.count(element) > 1
+  # end
+  # return false
+  
+  # Can't get shorter than this
+  arr.any? { |element| arr.count(element) > 1 }
 end
 
 # Creating a key, value relationship between numbers and frequencies, 
