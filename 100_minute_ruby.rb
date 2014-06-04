@@ -11,7 +11,7 @@ class PersonalChef
 		return self
 	end
 
-	def make_eggs(quantity)
+	def make_eggs(quantity = nil)
     if quantity.is_a?(Integer)
   		quantity.times do
   		  puts "Making an egg."
@@ -23,8 +23,12 @@ class PersonalChef
 		return self  
 	end
 
-	def make_milkshake(flavor)
-		puts "Making your #{flavor} milkshake!"
+	def make_milkshake(flavor = nil)
+		if flavor.is_a?(String)
+      puts "Making your #{flavor} milkshake!"
+    else
+      puts "That's not a milkshake flavor I can make!"
+    end
 		return self
 	end
 

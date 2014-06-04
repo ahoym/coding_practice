@@ -37,6 +37,23 @@ describe "PersonalChef" do
         output = capture_stdout { chef.make_eggs('cheese') }
         expect(output).to eq("That's not a number, boss!")
       end
+      
+      it "should question you if you don't specify a number (blank)" do
+        output = capture_stdout { chef.make_eggs() }
+        expect(output).to eq("That's not a number, boss!")
+      end
+    end
+    
+    describe "#make_milkshake" do
+      it "should make you a flavored milkshake" do
+        output = capture_stdout { chef.make_milkshake('strawberry') }
+        expect(output).to eq("Making your strawberry milkshake!")
+      end
+      
+      it "should question you don't tell him a String type flavor" do
+        output = capture_stdout { chef.make_milkshake(0) }
+        expect(output).to eq("That's not a milkshake flavor I can make!")
+      end
     end
   end
 end
