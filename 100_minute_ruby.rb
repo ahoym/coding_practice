@@ -35,7 +35,7 @@ class PersonalChef
 	def good_morning
 		today = Date.today.strftime("%A")
 		day_of_year = Date.today.yday
-		puts "Happy #{today}, it's the #{day_of_year} day of 2013!"
+		puts "Happy #{today}, it's the #{day_of_year} day of 2014!"
 	end
 
 	def gameplan(meals)

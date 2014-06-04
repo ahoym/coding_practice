@@ -56,4 +56,17 @@ describe "PersonalChef" do
       end
     end
   end
+
+  context "when you ask for" do
+    describe "#good_morning" do
+      it "should tell you the day of the week, and what day it is of the year" do
+        output = capture_stdout { chef.good_morning }
+    		today = Date.today.strftime("%A")
+    		day_of_year = Date.today.yday
+        
+        expect(output).to eq("Happy #{today}, it's the #{day_of_year} day of 2014!")
+      end
+    end
+    
+  end
 end
