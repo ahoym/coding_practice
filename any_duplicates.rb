@@ -17,7 +17,7 @@ def any_duplicates?(arr)
   # arr.each do |element|
   #   return true if arr.count(element) > 1
   # end
-  # return false
+  # false
   
   # Can't get shorter than this
   arr.any? { |element| arr.count(element) > 1 }
@@ -25,7 +25,7 @@ end
 
 # Creating a key, value relationship between numbers and frequencies, 
 #    then checking if all values equal to 1.
-def any_duplicates?(arr)
+def any_duplicate_nums?(arr)
 	n = arr.length
 	counts = Hash.new(0)
 
@@ -33,6 +33,6 @@ def any_duplicates?(arr)
 		counts[element] += 1
 	end
 
-	counts.values.all? {|x| x == 1} ? false : true
-
+  !counts.values.all? { |x| x == 1 }
+  #or counts.values.any? { |x| x != 1 }
 end
