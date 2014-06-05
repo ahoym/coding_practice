@@ -1,7 +1,8 @@
+# ========== Description ===========
 # Write a program that determines whether a sequence of numbers (array) is
 #    "Arithmetic" or "Geometric". It is arithmetic if the step is addition/subtraction
 #    and it is geometric if the step is multiplication/division.
-
+# ==================================
 
 # Takes a test segment that is at least 1/3 of the given array.
 # The + 2 at the end of (arr.length/3)+2 ensures the test sample is at least
@@ -30,16 +31,17 @@ end
 # ------------------------ New and Clean. Iterates through all numbers to 
 #       prevent ninja numbers.
 
-def ArithGeoII(arr)
+def arith_geo(arr)
+  return -1 if arr.length < 2
+  alist = []
+  glist = []
+  (1...arr.length).each do |n| 
+    alist << arr[n] - arr[n - 1]
+    glist << arr[n] / arr[n - 1]
+  end
   
-  list = []  
-  (1...arr.length).each {|n| list << arr[n] - arr[n-1]}
-  return "Arithmetic" if list.all? { |diff| diff == arr[1] - arr[0] }
+  return "Arithmetic" if alist.all? { |diff| diff != 0 && diff == arr[1] - arr[0] }
+  return "Geometric" if glist.all? { |quot| quot == arr[1] / arr[0] }
 
-  list = []
-  (1...arr.length).each {|n| list << arr[n] / arr[n-1]}
-  return "Geometric" if list.all? { |quot| quot == arr[1] / arr[0] }
-
-  return -1
-         
+  -1       
 end
