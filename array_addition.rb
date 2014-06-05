@@ -3,22 +3,28 @@
 #   -- eg, ArrayAddition([3,5,-1,8,12,24]) = true
 #   -- eg, ArrayAddition([2,5,8,4]) = false
 
-def ArrayAddition(arr)
-  max = arr.delete(arr.max)
+# Polynomial time complexity O(n**3) and linear space complexity O(n). Better way to do this without built in ruby methods?
+def array_addition(arr)
+  return false if arr.length < 2
+  max = arr.max
   seen = []
 
+  # i is the base of where a potential combination will occur.
   (0...arr.length).each do |i|
+    next if arr[i] == max
     test = arr[i]
     combo = [] << arr[i]
-
+    
+    # j and k are 'slow' and 'fast' iterators, respectively.
     (0...arr.length).each do |j|
-
+      next if arr[i] == max
       (0...arr.length).each do |k|
+        next if arr[i] == max
         next if j == k || i == k
         combo << arr[k]
         test += arr[k]
         if test == max
-          print seen
+          print combo
           return true
         end 
       end
@@ -29,8 +35,7 @@ def ArrayAddition(arr)
     end
   end
 
-  print seen
-  return false
+  false
 end
 
 # ------------------ Using .combination -----------------
@@ -41,13 +46,11 @@ def ArrayAdditionI(arr)
   arr.combination(n).to_a
   end
   p ar 
-  ar.each do |x| if x.inject(:+) == nmax
-                    return 'true'
-    end
+  ar.each do |x| 
+    return true if x.inject(:+) == nmax
   end
-  # code goes here
-  return 'false'
-         
+
+  false
 end
 
 #-------------------------
@@ -61,7 +64,7 @@ def combinations(array)
       n[i] == 1
     end
 
-    print blah
   end
-
 end
+
+# ---------------
