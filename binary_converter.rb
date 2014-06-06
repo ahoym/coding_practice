@@ -2,7 +2,7 @@
 #   -- eg, '011' => '3'
 #   --     '100101' => '37' 
 
-def BinaryConverter(str)
+def binary_converter(str)
   decimal = 0
 
   (str.length).times do |n|
@@ -11,6 +11,5 @@ def BinaryConverter(str)
     end
   end
 
-  return decimal 
-         
+  decimal       
 end
