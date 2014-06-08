@@ -14,18 +14,20 @@ def word_cipher(word,n)
 end
 
 def caesar_cipher(string, n)
-    puts string.upcase.split.map{|word| word_cipher(word, n)}.join(" ")
+  string.upcase.split.map{|word| word_cipher(word, n)}.join(" ")
 end
 
-def caesar_cipher(str, shift)
+def caesar_cipherII(str, shift)
   str.split(//).inject('') { |coded,i| coded += (i == " " ? " " : (shift.times{i = i.next[-1] }; i)) }
 end
 
-p caesar_cipher("abc",3)
-p caesar_cipher("aaa", 11)
-p caesar_cipher("zzz", 1)
-p caesar_cipher("catz hatz", 2)
-pcaesar_cipher('hello this is a test of the function. wxyz.', 3)
-
-
-	
+# Solution on 06/07/14
+def caesar_cipherIII(string, n = 0)  
+  string.split(//).map do |character|
+    if character =~ /[A-z]/i
+      RE_CIPHER[(CIPHER[character.upcase] + 26 + n) % 26]
+    else
+      character
+    end
+  end.join
+end
