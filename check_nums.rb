@@ -9,3 +9,11 @@ def num_check(num1, num2)
 	return blah
 
 end
+
+# Solution - 06/07/2014
+def check_nums(num1 = nil, num2 = nil)
+  raise ArgumentError if num2.nil? || num1.nil?
+  return -1 if num1 == num2
+  
+  num2 > num1
+end
