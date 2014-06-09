@@ -1,4 +1,5 @@
-def combine_arrays(arr1,arr2)
+def combine_arrays(arr1 = nil, arr2 = nil)
+  raise ArgumentError if arr1.nil? || arr2.nil?
 	arr = arr1 + arr2
 	sorted = false
 	
@@ -14,5 +15,5 @@ def combine_arrays(arr1,arr2)
 		end
 	end
 
-	print arr
+	arr
 end
