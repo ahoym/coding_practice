@@ -36,12 +36,10 @@ def common_substringsI(str1,str2)
   longest
 end
 
-def common_substringsII(str1, str2)
+def common_substringsII(str1 = nil, str2 = nil)
+  raise ArgumentError if str1.nil? || str2.nil?
   str1_substrings = []
   str1.length.times { |i| str1_substrings += str1.split(//).each_cons(i+1).to_a.map(&:join) }
   str1_substrings.reverse.each {|s| return s if str2.include?(s)}
-  return ""
+  ""
 end
-
-p common_substringsI("zooglensuck","lenscrafter")
-p common_substrings("abc","xyz")
