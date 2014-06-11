@@ -17,13 +17,16 @@ def convert_time(str)
     total += (12*60)
   end
   
-  return total += (hours.to_i*60) + minutes.to_i
-
+  total + (hours.to_i*60) + minutes.to_i
 end
 
-def CountingMinutesI(str)
+def converting_minutes(str = nil)
+  raise StandardError if str.nil?
+  raise ArgumentError if str[/\d?\d\:\d\d(am|pm)\-\d?\d\:\d\d(am|pm)/i].nil?
+  
   times = str.split(/-/)
   
-  return minutes = convert_time(times[1]) - convert_time(times[0]) % 1440
-
+  minutes = convert_time(times[1]) - convert_time(times[0]) % 1440
+  
+  return minutes + (minutes < 0 ? 1440 : 0)
 end

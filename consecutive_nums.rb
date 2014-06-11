@@ -1,7 +1,7 @@
 
 # Sorts the input array, then subtracts each element by the previous element,
 #   then subtracts 1 to find the numbers in between the two affected elements.
-def Consecutive(arr)
+def consecutive(arr)
   temp = arr.sort!
   nums_needed = 0
 
@@ -16,7 +16,7 @@ end
 # Takes the minimum and maximum of the array, then using those as the limits
 #   of a range, a counter is added to every number between the limits if the 
 #   number, i, is not in the array.
-def ConsecutiveII(arr)
+def consecutiveII(arr)
   count = 0
 
   ((arr.min)..(arr.max)).each do |i|
