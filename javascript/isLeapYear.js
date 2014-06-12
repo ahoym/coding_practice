@@ -5,6 +5,11 @@
 //  + Years divisible by 400 ARE leap years.
 
 function isLeapYear(year) {
+	// year % 1 !== 0 will prevent floats, except for cases of 2020.0
+	if (typeof year !== 'number' || year % 1 !== 0) {
+		throw new Error("Not a valid input");
+	}
+	
 	if (year % 4 === 0 && year % 100 !== 0) {
 		return true;
 	} else if (year % 400 === 0) {
