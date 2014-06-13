@@ -32,3 +32,9 @@ function strEndsWithII(str, ending) {
 	
 	return true;
 };
+
+// cool solution using RegEx. It translates to /(ending)$/i
+// ending is at absolute str end, and case insensitive.
+function solution(str, ending){
+  return new RegExp(ending+"$", "i").test(str);
+}
