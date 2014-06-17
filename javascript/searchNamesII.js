@@ -16,12 +16,21 @@ which the filter-method returns true.
 
 
 function searchNamesII( logins ){
+	if (!Array.isArray(logins)) throw new Error("Input value is not an array");
+	
   return logins.filter( function(login, index, arr) {
     var prev = arr[index - 1];
     if (prev === undefined) return;
-  
+	
     if (prev[0] === "." || prev.slice(-1) === ".") {
       return arr[index];
     }
   });
 };
+
+// using regex
+function searchNamesIIb( logins ){
+  return logins.filter(function(el, index, arr) {
+    return index % 2 === 1 && arr[index - 1].match(/^\.|\.$/);
+  });
+}	
