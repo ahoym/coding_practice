@@ -15,6 +15,7 @@ describe('serachNamesII', function() {
 	});
 	
 	it('should throw an error if the input value is not an array', function() {
-		expect(function() { searchNamesII("lol") }).toThrow('Input value is not an array');
+		var expectedError = new Error('Input value is not an array');
+		expect(function() { searchNamesII("lol") }).toThrow(expectedError);
 	});
 });
