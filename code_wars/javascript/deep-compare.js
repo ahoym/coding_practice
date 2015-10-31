@@ -20,6 +20,9 @@ objects and arrays containing strings, booleans and numbers, without taking
 into account regular expressiones, dates and functions.
 */
 
+'use strict';
+
+
 function deepCompareES5(obj1, obj2) {
   // Handle comparisons of non-objects
   if (obj1 === obj2) {
@@ -47,7 +50,7 @@ const deepCompareES6 = (obj1, obj2) => {
     return true;
   }
 
-	if (typeof obj1 !== 'object' || typeof obj2 !== 'object') {
+  if (typeof obj1 !== 'object' || typeof obj2 !== 'object') {
     return false;
   }
 

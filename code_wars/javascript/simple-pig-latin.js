@@ -7,6 +7,7 @@ pigIt('Pig latin is cool'); // igPay atinlay siay oolcay
 
 'use strict';
 
+
 function simplePigLatinES5(str) {
   return str.split(' ')
     .map(function(word) {
@@ -18,5 +19,6 @@ function simplePigLatinES5(str) {
 const simplePigLatinES6 = (str) => {
   return str.split(' ').map(word => word.replace(/^(.)(.*)/, '$2$1ay')).join(' ');
 };
+
 
 export { simplePigLatinES5, simplePigLatinES6 };

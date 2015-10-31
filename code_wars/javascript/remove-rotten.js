@@ -34,7 +34,7 @@ const removeRottenES6 = (bagOfFruits) => {
     return [];
   }
 
-	return bagOfFruits.map(fruit => fruit.replace(/^rotten/, '').toLowerCase());
+  return bagOfFruits.map(fruit => fruit.replace(/^rotten/, '').toLowerCase());
 };
 
 

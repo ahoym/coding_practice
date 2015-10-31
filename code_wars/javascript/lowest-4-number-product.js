@@ -8,6 +8,7 @@ If not, return "Number is too small".
 
 'use strict';
 
+
 /**
  * Helper function, computes the product of a 4 number array
  * @param {array} of 4 integers
@@ -55,6 +56,7 @@ const lowestProductES6 = (input) => {
 
   return lowest;
 };
+
 
 export { lowestProductES5 };
 export { lowestProductES6 };
