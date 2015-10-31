@@ -21,85 +21,49 @@ import chai from 'chai';
 const expect = chai.expect;
 
 
-describe('removeRotten, ES5', function() {
-  it('given a fruit array, replaces rotten fruit', function() {
-    var fruits = ['apple', 'rottenBanana', 'rottenApple', 'pineapple', 'kiwi'];
-    var expectedFruits = ['apple', 'banana', 'apple', 'pineapple', 'kiwi'];
+const testRemoveRotten = (removeRotten) => {
+  describe(`${removeRotten.name}`, () => {
+    it('given a fruit array, replaces rotten fruit', () => {
+      let fruits = ['apple', 'banana', 'kiwi', 'melone', 'orange'];
+      let expectedFruits = ['apple', 'banana', 'kiwi', 'melone', 'orange'];
 
-    expect(removeRottenES5(fruits)).to.deep.equal(expectedFruits);
+      expect(removeRotten(fruits)).to.deep.equal(expectedFruits);
+    });
+
+    it('doesn\'t replace any fruit if they\'re all good', () => {
+      let fruits = ['apple', 'banana', 'kiwi', 'melone', 'orange'];
+      let expectedFruits = ['apple', 'banana', 'kiwi', 'melone', 'orange'];
+
+      expect(removeRotten(fruits)).to.deep.equal(expectedFruits);
+    });
+
+    it('replaces all fruit if they\'re all bad', () => {
+      var fruits = [
+        'rottenApple',
+        'rottenBanana',
+        'rottenApple',
+        'rottenPineapple',
+        'rottenKiwi'
+      ];
+      var expectedFruits = ['apple', 'banana', 'apple', 'pineapple', 'kiwi'];
+
+      expect(removeRotten(fruits)).to.deep.equal(expectedFruits);
+    });
+
+    it('returns an empty array if the input is null', () => {
+      expect(removeRotten(null)).to.deep.equal([]);
+    });
+
+    it('returns an empty array if the input is undefined', () => {
+      expect(removeRotten(undefined)).to.deep.equal([]);
+    });
+
+    it('returns an empty array if the input is empty', () => {
+      expect(removeRotten([])).to.deep.equal([]);
+    });
   });
-
-  it('doesn\'t replace any fruit if they\'re all good', function() {
-    var fruits = ['apple', 'banana', 'kiwi', 'melone', 'orange'];
-    var expectedFruits = ['apple', 'banana', 'kiwi', 'melone', 'orange'];
-
-    expect(removeRottenES5(fruits)).to.deep.equal(expectedFruits);
-  });
-
-  it('replaces all fruit if they\'re all bad', function() {
-    var fruits = [
-      'rottenApple',
-      'rottenBanana',
-      'rottenApple',
-      'rottenPineapple',
-      'rottenKiwi'
-    ];
-    var expectedFruits = ['apple', 'banana', 'apple', 'pineapple', 'kiwi'];
-
-    expect(removeRottenES5(fruits)).to.deep.equal(expectedFruits);
-  });
-
-  it('returns an empty array if the input is null', function() {
-    expect(removeRottenES5(null)).to.deep.equal([]);
-  });
-
-  it('returns an empty array if the input is undefined', function() {
-    expect(removeRottenES5(undefined)).to.deep.equal([]);
-  });
-
-  it('returns an empty array if the input is empty', function() {
-    expect(removeRottenES5([])).to.deep.equal([]);
-  });
-});
+};
 
 
-describe('removeRotten, ES6', () => {
-  it('given a fruit array, replaces rotten fruit', () => {
-    let fruits = ['apple', 'banana', 'kiwi', 'melone', 'orange'];
-    let expectedFruits = ['apple', 'banana', 'kiwi', 'melone', 'orange'];
-
-    expect(removeRottenES6(fruits)).to.deep.equal(expectedFruits);
-  });
-
-  it('doesn\'t replace any fruit if they\'re all good', () => {
-    let fruits = ['apple', 'banana', 'kiwi', 'melone', 'orange'];
-    let expectedFruits = ['apple', 'banana', 'kiwi', 'melone', 'orange'];
-
-    expect(removeRottenES6(fruits)).to.deep.equal(expectedFruits);
-  });
-
-  it('replaces all fruit if they\'re all bad', () => {
-    var fruits = [
-      'rottenApple',
-      'rottenBanana',
-      'rottenApple',
-      'rottenPineapple',
-      'rottenKiwi'
-    ];
-    var expectedFruits = ['apple', 'banana', 'apple', 'pineapple', 'kiwi'];
-
-    expect(removeRottenES6(fruits)).to.deep.equal(expectedFruits);
-  });
-
-  it('returns an empty array if the input is null', () => {
-    expect(removeRottenES6(null)).to.deep.equal([]);
-  });
-
-  it('returns an empty array if the input is undefined', () => {
-    expect(removeRottenES6(undefined)).to.deep.equal([]);
-  });
-
-  it('returns an empty array if the input is empty', () => {
-    expect(removeRottenES6([])).to.deep.equal([]);
-  });
-});
+testRemoveRotten(removeRottenES5);
+testRemoveRotten(removeRottenES6);

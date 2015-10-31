@@ -15,47 +15,30 @@ import { rot13ES5, rot13ES6 } from '../rot13';
 const expect = chai.expect;
 
 
-describe('rot13, ES5', function() {
-  it('caesar ciphers a string by 13 characters', function() {
-    expect(rot13ES5('test')).to.equal('grfg');
-  });
+const testRot13 = (rot13) => {
+  describe(`${rot13.name}`, () => {
+    it('caesar ciphers a string by 13 characters', () => {
+      expect(rot13('test')).to.equal('grfg');
+    });
 
-  it('encrypts strings with capitals', function() {
-    expect(rot13ES5('Test')).to.equal('Grfg');
-  });
+    it('encrypts strings with capitals', () => {
+      expect(rot13('Test')).to.equal('Grfg');
+    });
 
-  it('doesn\'t encrypt spaces', function() {
-    expect(rot13ES5('test Test')).to.equal('grfg Grfg');
-  });
+    it('doesn\'t encrypt spaces', () => {
+      expect(rot13('test Test')).to.equal('grfg Grfg');
+    });
 
-  it('only encrypts encrypt letters', function() {
-    expect(rot13ES5('!!!123')).to.equal('!!!123');
-  });
+    it('only encrypts encrypt letters', () => {
+      expect(rot13('!!!123')).to.equal('!!!123');
+    });
 
-  it('encrypts strings with spaces and punctuation', function() {
-    expect(rot13ES5('10 + 2 is twelve.')).to.equal('10 + 2 vf gjryir.');
+    it('encrypts strings with spaces and punctuation', () => {
+      expect(rot13('10 + 2 is twelve.')).to.equal('10 + 2 vf gjryir.');
+    });
   });
-});
+};
 
 
-describe('rot13, ES6', () => {
-  it('caesar ciphers a string by 13 characters', () => {
-    expect(rot13ES6('test')).to.equal('grfg');
-  });
-
-  it('encrypts strings with capitals', () => {
-    expect(rot13ES6('Test')).to.equal('Grfg');
-  });
-
-  it('doesn\'t encrypt spaces', () => {
-    expect(rot13ES6('test Test')).to.equal('grfg Grfg');
-  });
-
-  it('only encrypts encrypt letters', () => {
-    expect(rot13ES6('!!!123')).to.equal('!!!123');
-  });
-
-  it('encrypts strings with spaces and punctuation', () => {
-    expect(rot13ES6('10 + 2 is twelve.')).to.equal('10 + 2 vf gjryir.');
-  });
-});
+testRot13(rot13ES5);
+testRot13(rot13ES6);
