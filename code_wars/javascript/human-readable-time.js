@@ -20,8 +20,8 @@ function humanReadableTimeES5(seconds) {
     seconds % 3600 / 60,
     seconds % 60
   ]
-  .map(function(time) {
-    var readable = parseInt(time).toString();
+  .map(function (time) {
+    var readable = parseInt(time, 10).toString();
     return readable.length === 1 ? '0' + readable : readable;
   })
   .join(':');
@@ -30,8 +30,8 @@ function humanReadableTimeES5(seconds) {
 
 const humanReadableTimeES6 = (seconds) => {
   let padTime = (time) => time < 10 ? '0' + time : time;
-  let hours = padTime(parseInt(seconds / 3600));
-  let minutes = padTime(parseInt(seconds % 3600 / 60));
+  let hours = padTime(parseInt(seconds / 3600, 10));
+  let minutes = padTime(parseInt(seconds % 3600 / 60, 10));
   let secs = padTime(seconds % 60);
 
   return `${hours}:${minutes}:${secs}`;

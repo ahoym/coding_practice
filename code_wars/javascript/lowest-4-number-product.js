@@ -11,25 +11,32 @@ If not, return "Number is too small".
 
 /**
  * Helper function, computes the product of a 4 number array
- * @param {array} of 4 integers
+ * @param {array} nums of 4 integers
  * @return {Number} the product of the 4 input numbers
  */
 function consecutiveProduct(nums) {
-  return nums.reduce(function(product, num) {
+  return nums.reduce(function (product, num) {
     return product *= num;
   }, 1);
 }
 
 function lowestProductES5(input) {
+  var nums;
+  var lowest;
+  var i;
+  var compare;
+
   if (input.length < 4) {
     return 'Number is too small';
   }
 
-  var nums = input.split('').map(function(strNum) { return parseInt(strNum); });
-  var lowest = consecutiveProduct(nums.slice(0, 4));
+  nums = input.split('').map(function (strNum) {
+    return parseInt(strNum, 10);
+  });
+  lowest = consecutiveProduct(nums.slice(0, 4));
 
-  for (var i = 1; i < nums.length - 3; i++) {
-    var compare = consecutiveProduct(nums.slice(i, i + 4));
+  for (i = 1; i < nums.length - 3; i++) {
+    compare = consecutiveProduct(nums.slice(i, i + 4));
     lowest = Math.min(lowest, compare);
   }
 

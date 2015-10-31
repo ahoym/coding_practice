@@ -23,7 +23,7 @@ function removeRottenES5(bagOfFruits) {
     return [];
   }
 
-  return bagOfFruits.map(function(fruit) {
+  return bagOfFruits.map(function (fruit) {
     return fruit.replace(/^rotten/, '').toLowerCase();
   });
 }

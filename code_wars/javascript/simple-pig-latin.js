@@ -10,7 +10,7 @@ pigIt('Pig latin is cool'); // igPay atinlay siay oolcay
 
 function simplePigLatinES5(str) {
   return str.split(' ')
-    .map(function(word) {
+    .map(function (word) {
       return word.replace(/^(.)(.*)/, '$2$1ay');
     })
     .join(' ');

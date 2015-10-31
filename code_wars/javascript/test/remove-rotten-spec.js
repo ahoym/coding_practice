@@ -24,15 +24,15 @@ const expect = chai.expect;
 const testRemoveRotten = (removeRotten) => {
   describe(`${removeRotten.name}`, () => {
     it('given a fruit array, replaces rotten fruit', () => {
-      let fruits = ['apple', 'banana', 'kiwi', 'melone', 'orange'];
-      let expectedFruits = ['apple', 'banana', 'kiwi', 'melone', 'orange'];
+      let fruits = [ 'apple', 'banana', 'kiwi', 'melone', 'orange' ];
+      let expectedFruits = [ 'apple', 'banana', 'kiwi', 'melone', 'orange' ];
 
       expect(removeRotten(fruits)).to.deep.equal(expectedFruits);
     });
 
     it('doesn\'t replace any fruit if they\'re all good', () => {
-      let fruits = ['apple', 'banana', 'kiwi', 'melone', 'orange'];
-      let expectedFruits = ['apple', 'banana', 'kiwi', 'melone', 'orange'];
+      let fruits = [ 'apple', 'banana', 'kiwi', 'melone', 'orange' ];
+      let expectedFruits = [ 'apple', 'banana', 'kiwi', 'melone', 'orange' ];
 
       expect(removeRotten(fruits)).to.deep.equal(expectedFruits);
     });
@@ -45,21 +45,21 @@ const testRemoveRotten = (removeRotten) => {
         'rottenPineapple',
         'rottenKiwi'
       ];
-      var expectedFruits = ['apple', 'banana', 'apple', 'pineapple', 'kiwi'];
+      var expectedFruits = [ 'apple', 'banana', 'apple', 'pineapple', 'kiwi' ];
 
       expect(removeRotten(fruits)).to.deep.equal(expectedFruits);
     });
 
     it('returns an empty array if the input is null', () => {
-      expect(removeRotten(null)).to.deep.equal([]);
+      expect(removeRotten(null)).to.deep.equal([ ]);
     });
 
     it('returns an empty array if the input is undefined', () => {
-      expect(removeRotten(undefined)).to.deep.equal([]);
+      expect(removeRotten(undefined)).to.deep.equal([ ]);
     });
 
     it('returns an empty array if the input is empty', () => {
-      expect(removeRotten([])).to.deep.equal([]);
+      expect(removeRotten([ ])).to.deep.equal([ ]);
     });
   });
 };

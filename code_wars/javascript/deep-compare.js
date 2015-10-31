@@ -39,7 +39,7 @@ function deepCompareES5(obj1, obj2) {
     return false;
   }
 
-  return Object.keys(obj1).every(function(key) {
+  return Object.keys(obj1).every(function (key) {
     return deepCompareES5(obj1[key], obj2[key]);
   });
 }

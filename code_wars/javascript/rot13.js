@@ -13,7 +13,7 @@ alphabet should be shifted, like in the original Rot13 'implementation'.
 
 
 function rot13ES5(message) {
-  return message.replace(/[a-zA-Z]/g, function(letter) {
+  return message.replace(/[a-zA-Z]/g, function (letter) {
     var ascii = letter.charCodeAt();
     var asciiLimit = letter > 'Z' ? 122 : 90;
     var encryptedAscii = ascii + 13 > asciiLimit ? ascii - 13 : ascii + 13;
